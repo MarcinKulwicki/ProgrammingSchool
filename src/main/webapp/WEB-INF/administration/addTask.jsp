@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
+    <title>Administration</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
@@ -21,40 +21,27 @@
     <![endif]-->
 </head>
 <body>
-<c:import url="fragments/header.jsp"/>
+<c:import url="../fragments/header.jsp"/>
+<c:import url="../fragments/headerAdmin.jsp"/>
 
-<table class="table table-hover table-dark">
-    <thead>
-    <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-    </tr>
-    <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-    </tr>
-    <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-    </tr>
-    </tbody>
-</table>
+<c:if test="${not empty information}">Incorrect data</c:if>
+<h1></h1>
+<h4>Add Task</h4>
+<form method="post">
+    <div class="col">
+        <input type="number" class="form-control" placeholder="User id" name="userId">
+        <h1></h1>
+        <input type="number" class="form-control" placeholder="Task id" name="taskId">
+        <h1></h1>
+        <input type="text" class="form-control" placeholder="Task name" name="taskName">
+        <h1></h1>
+        <input type="text" class="form-control" placeholder="Task answer" name="taskAnswer">
+        <h1></h1>
+        <button type="submit" class="btn btn-info">Add Task</button>
+    </div>
 
-
-<c:import url="fragments/footer.jsp"/>
+</form>
+<c:import url="../fragments/footer.jsp"/>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->

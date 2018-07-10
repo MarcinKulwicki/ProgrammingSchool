@@ -21,12 +21,32 @@
     <![endif]-->
 </head>
 <body>
-<c:import url="fragments/header.jsp"/>
-<c:import url="fragments/headerAdmin.jsp"/>
+<c:import url="../fragments/header.jsp"/>
+<c:import url="../fragments/headerAdmin.jsp"/>
 
+<c:if test="${not empty information}">Incorrect data</c:if>
+<h1></h1>
 
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">User Group Name</th>
+    </tr>
+    </thead>
+    <tbody>
 
-<c:import url="fragments/footer.jsp"/>
+    <c:forEach items="${userGroupList}" var="userGroup">
+        <tr>
+            <th scope="row">${userGroup.id}</th>
+            <td>${userGroup.name}</td>
+        </tr>
+    </c:forEach>
+    </tbody>
+</table>
+
+</form>
+<c:import url="../fragments/footer.jsp"/>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->

@@ -21,12 +21,44 @@
     <![endif]-->
 </head>
 <body>
-<c:import url="fragments/header.jsp"/>
-<c:import url="fragments/headerAdmin.jsp"/>
+<c:import url="../fragments/header.jsp"/>
+<c:import url="../fragments/headerAdmin.jsp"/>
+<form method="get">
+    <h1></h1>
+    <h4>Search Task</h4>
+    <input type="number" name="id" placeholder="id task">
+    <h1></h1>
+    <button type="submit" class="btn btn-info">Search</button>
+</form>
+
+<form method="post">
+    <h1></h1>
+    <h4>Edit Task</h4>
+    <div class="form-row">
+        <div class="form-group">
+            <input type="number" placeholder="id" class="form-control" value="${task.id}" name="id">
+        </div>
+        <div class="form-group">
+            <input type="text" placeholder="User id" class="form-control" value="${task.userId}" name="userId">
+        </div>
+        <div class="form-group">
+            <input type="text" placeholder="Task id" class="form-control" value="${task.taskId}" name="taskId">
+        </div>
+        <div class="form-group">
+            <input type="text" placeholder="Task name" class="form-control" value="${task.taskName}" name="taskName">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group">
+            <input type="text" placeholder="Task answer" class="form-control" value="${task.taskAnswer}" name="taskAnswer">
+        </div>
+    </div>
+    <h1></h1>
+    <button type="submit" class="btn btn-info">Edit</button>
+</form>
 
 
-
-<c:import url="fragments/footer.jsp"/>
+<c:import url="../fragments/footer.jsp"/>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->

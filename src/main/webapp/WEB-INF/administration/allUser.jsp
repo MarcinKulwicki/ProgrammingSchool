@@ -21,12 +21,40 @@
     <![endif]-->
 </head>
 <body>
-<c:import url="fragments/header.jsp"/>
-<c:import url="fragments/headerAdmin.jsp"/>
+<c:import url="../fragments/header.jsp"/>
+<c:import url="../fragments/headerAdmin.jsp"/>
 
+<c:if test="${not empty information}">Incorrect data</c:if>
+<h1></h1>
 
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">User group id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Surname</th>
+        <th scope="col">Git login</th>
+        <th scope="col">E-mail</th>
+    </tr>
+    </thead>
+    <tbody>
 
-<c:import url="fragments/footer.jsp"/>
+    <c:forEach items="${userList}" var="user">
+        <tr>
+            <th scope="row">${user.id}</th>
+            <td>${user.userGroupId}</td>
+            <td>${user.name}</td>
+            <td>${user.surname}</td>
+            <td>${user.gitLogin}</td>
+            <td>${user.email}</td>
+        </tr>
+    </c:forEach>
+    </tbody>
+</table>
+
+</form>
+<c:import url="../fragments/footer.jsp"/>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->

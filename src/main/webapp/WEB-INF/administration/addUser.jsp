@@ -21,12 +21,29 @@
     <![endif]-->
 </head>
 <body>
-<c:import url="fragments/header.jsp"/>
-<c:import url="fragments/headerAdmin.jsp"/>
+<c:import url="../fragments/header.jsp"/>
+<c:import url="../fragments/headerAdmin.jsp"/>
 
+<c:if test="${not empty information}">Incorrect data</c:if>
+<h1></h1>
+<h4>Add User</h4>
+<form method="post">
+    <div class="col">
+        <input type="number" class="form-control" placeholder="User group id" name="userGroupId">
+        <h1></h1>
+        <input type="text" class="form-control" placeholder="User name" name="name">
+        <h1></h1>
+        <input type="text" class="form-control" placeholder="User surname" name="surname">
+        <h1></h1>
+        <input type="text" class="form-control" placeholder="User git Login" name="gitLogin">
+        <h1></h1>
+        <input type="text" class="form-control" placeholder="User email" name="email">
+        <h1></h1>
+        <button type="submit" class="btn btn-info">Add User</button>
+    </div>
 
-
-<c:import url="fragments/footer.jsp"/>
+</form>
+<c:import url="../fragments/footer.jsp"/>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
