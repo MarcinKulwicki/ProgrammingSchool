@@ -11,19 +11,25 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 @WebServlet(name = "AddTask" , urlPatterns = "/addTask")
 public class AddTask extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
+
 
         try {
             String userId = request.getParameter("userId");
             String taskId = request.getParameter("taskId");
             String taskName = request.getParameter("taskName");
             String taskAnswer = request.getParameter("taskAnswer");
+            String date = LocalDateTime.now().toString().split("T")[0];
 
             TaskDao taskDao = new TaskDao();
-            Task task = new Task(taskDao.getId()+1, Integer.parseInt(userId) , Integer.parseInt(taskId), taskName , taskAnswer);
+            Task task = new Task(taskDao.getId()+1, Integer.parseInt(userId) , Integer.parseInt(taskId), taskName , taskAnswer, date);
             taskDao.addTask(task);
 
 
@@ -34,9 +40,11 @@ public class AddTask extends HttpServlet {
             request.setAttribute("information", "Incorrect data");
             getServletContext().getRequestDispatcher("/WEB-INF/administration/addTask.jsp").forward(request, response);
         }
+        getServletContext().getRequestDispatcher("/WEB-INF/administration/addTask.jsp").forward(request,response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 
         getServletContext().getRequestDispatcher("/WEB-INF/administration/addTask.jsp").forward(request,response);
     }

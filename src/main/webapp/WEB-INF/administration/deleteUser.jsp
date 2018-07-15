@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Home</title>
+    <title>Administration</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
@@ -21,38 +21,19 @@
     <![endif]-->
 </head>
 <body>
-<c:import url="fragments/header.jsp"/>
-
-<h1></h1>
-
-<table class="table table-hover">
-    <thead>
-    <tr>
-        <th scope="col">#</th>
-        <th scope="col">User id</th>
-        <th scope="col">Task id</th>
-        <th scope="col">Task name</th>
-        <th scope="col">Task answer</th>
-        <th scope="col">Task data</th>
-    </tr>
-    </thead>
-    <tbody>
-
-    <c:forEach items="${taskList}" var="task">
-        <tr>
-            <th scope="row">${task.id}</th>
-            <td>${task.userId}</td>
-            <td>${task.taskId}</td>
-            <td>${task.taskName}</td>
-            <td>${task.taskAnswer}</td>
-            <td>${task.taskData}</td>
-        </tr>
-    </c:forEach>
-    </tbody>
-</table>
+<c:import url="../fragments/header.jsp"/>
+<c:import url="../fragments/headerAdmin.jsp"/>
+<form method="post">
+    <h1></h1>
+    <h4>Delete User by Id</h4>
+    <input type="number" name="id" placeholder="id user">
+    <h1></h1>
+    <button type="submit" class="btn btn-info">Delete</button>
+</form>
 
 
-<c:import url="fragments/footer.jsp"/>
+
+<c:import url="../fragments/footer.jsp"/>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->

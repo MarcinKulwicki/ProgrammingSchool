@@ -11,21 +11,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.time.LocalDateTime;
 
 @WebServlet(name = "EditTask", urlPatterns = "/editTask")
 public class EditTask extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         try {
-            String id = request.getParameter("id");
-            String userId = request.getParameter("userId");
-            String taskId = request.getParameter("taskId");
+            int id = Integer.parseInt(request.getParameter("id"));
+            int userId = Integer.parseInt(request.getParameter("userId"));
+            int taskId = Integer.parseInt(request.getParameter("taskId"));
             String taskName = request.getParameter("taskName");
             String taskAnswer = request.getParameter("taskAnswer");
+            String date = LocalDateTime.now().toString().split("T")[0];
 
             TaskDao taskDao = new TaskDao();
-            Task task = new Task(Integer.parseInt(id),Integer.parseInt(userId), Integer.parseInt(taskId),
-                    taskName, taskAnswer);
+            Task task = new Task(id,userId, taskId, taskName, taskAnswer, date);
             taskDao.editTask(task);
 
 

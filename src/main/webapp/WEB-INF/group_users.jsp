@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Home</title>
+    <title>Group Users</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
@@ -25,27 +25,31 @@
 
 <h1></h1>
 
+<h1></h1>
+
 <table class="table table-hover">
     <thead>
     <tr>
         <th scope="col">#</th>
-        <th scope="col">User id</th>
-        <th scope="col">Task id</th>
-        <th scope="col">Task name</th>
-        <th scope="col">Task answer</th>
-        <th scope="col">Task data</th>
+        <th scope="col">User group id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Surname</th>
+        <th scope="col">Git login</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">More information</th>
     </tr>
     </thead>
     <tbody>
 
-    <c:forEach items="${taskList}" var="task">
+    <c:forEach items="${userList}" var="user">
         <tr>
-            <th scope="row">${task.id}</th>
-            <td>${task.userId}</td>
-            <td>${task.taskId}</td>
-            <td>${task.taskName}</td>
-            <td>${task.taskAnswer}</td>
-            <td>${task.taskData}</td>
+            <th scope="row">${user.id}</th>
+            <td>${user.userGroupId}</td>
+            <td>${user.name}</td>
+            <td>${user.surname}</td>
+            <td>${user.gitLogin}</td>
+            <td>${user.email}</td>
+            <td><a href="/Group/Users/Task?task=${user.id}">All task</a></td>
         </tr>
     </c:forEach>
     </tbody>

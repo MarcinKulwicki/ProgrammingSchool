@@ -32,7 +32,7 @@ public class TaskDao {
 
     public void addTask(Task task){
 
-        String query = "Insert into task Values (?,?,?,?,?)";
+        String query = "Insert into task Values (?,?,?,?,?,?)";
 
         List<String> queryParams = new ArrayList<>();
         queryParams.add(String.valueOf(task.getId()));
@@ -40,6 +40,7 @@ public class TaskDao {
         queryParams.add(String.valueOf(task.getTaskId()));
         queryParams.add(task.getTaskName());
         queryParams.add(task.getTaskAnswer());
+        queryParams.add(task.getTaskData());
 
         DBService.executeUpdate(this.database, query , queryParams);
     }
@@ -84,7 +85,65 @@ public class TaskDao {
                         rs.getInt("user_id"),
                         rs.getInt("task_id"),
                         rs.getString("task_name"),
-                        rs.getString("task_answer") )
+                        rs.getString("task_answer"),
+                        rs.getString("task_data"))
+                );
+
+            }
+        }catch (SQLException e){
+            System.out.println("Error in loadAll in TaskDao");
+        }
+
+        System.out.println("");
+
+        return taskList;
+    }
+
+    public List<Task> loadAll(int userId){
+
+        List<Task> taskList = new ArrayList<>();
+
+        String query = "SELECT * FROM task WHERE user_id="+userId;
+
+        try(ResultSet rs = DBService.executeQuery(DBService.connect(this.database), query)){
+
+            while (rs.next()) {
+
+                taskList.add(new Task(
+                        rs.getInt("id"),
+                        rs.getInt("user_id"),
+                        rs.getInt("task_id"),
+                        rs.getString("task_name"),
+                        rs.getString("task_answer"),
+                        rs.getString("task_data"))
+                );
+
+            }
+        }catch (SQLException e){
+            System.out.println("Error in loadAll in TaskDao");
+        }
+
+        System.out.println("");
+
+        return taskList;
+    }
+
+    public List<Task> loadAll(String query){
+
+        List<Task> taskList = new ArrayList<>();
+
+
+        try(ResultSet rs = DBService.executeQuery(DBService.connect(this.database), query)){
+
+            while (rs.next()) {
+
+                taskList.add(new Task(
+                        rs.getInt("id"),
+                        rs.getInt("user_id"),
+                        rs.getInt("task_id"),
+                        rs.getString("task_name"),
+                        rs.getString("task_answer"),
+                        rs.getString("task_data"))
                 );
 
             }
@@ -99,7 +158,7 @@ public class TaskDao {
 
     public void editTask(Task task){
 
-        String query = "UPDATE task SET user_id=?,task_id=?,task_name=?,task_answer=? WHERE id=?";
+        String query = "UPDATE task SET user_id=?,task_id=?,task_name=?,task_answer=?,task_data=? WHERE id=?";
 
         List<String> queryParams = new ArrayList<>();
 
@@ -107,7 +166,9 @@ public class TaskDao {
         queryParams.add(String.valueOf(task.getTaskId()));
         queryParams.add(task.getTaskName());
         queryParams.add(task.getTaskAnswer());
-        queryParams.add( String.valueOf(task.getId()) );
+        queryParams.add(task.getTaskData());
+        queryParams.add( String.valueOf(task.getId()));
+
 
         DBService.executeUpdate(this.database, query, queryParams);
     }

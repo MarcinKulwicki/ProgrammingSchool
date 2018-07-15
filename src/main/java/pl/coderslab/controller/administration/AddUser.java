@@ -37,6 +37,7 @@ public class AddUser extends HttpServlet {
             request.setAttribute("information", "Incorrect data");
             getServletContext().getRequestDispatcher("/WEB-INF/administration/addUser.jsp").forward(request, response);
         }
+        getServletContext().getRequestDispatcher("/WEB-INF/administration/addUser.jsp").forward(request,response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

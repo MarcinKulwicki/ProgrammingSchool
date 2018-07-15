@@ -35,6 +35,7 @@ public class AddGroup extends HttpServlet {
         }
 
 
+        getServletContext().getRequestDispatcher("/WEB-INF/administration/addGroup.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

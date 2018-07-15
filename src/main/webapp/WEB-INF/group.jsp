@@ -23,7 +23,27 @@
 <body>
 <c:import url="fragments/header.jsp"/>
 
+<h1></h1>
 
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">User Group Name</th>
+            <th scope="col">Show more</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <c:forEach items="${userGroupList}" var="userGroup">
+            <tr>
+                <th scope="row">${userGroup.id}</th>
+                <td>${userGroup.name}</td>
+                <td><a href="/Group/Users?groupId=${userGroup.id}">All users</a></td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
 
 
 <c:import url="fragments/footer.jsp"/>

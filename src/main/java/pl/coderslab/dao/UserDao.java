@@ -100,6 +100,35 @@ public class UserDao {
         return userList;
     }
 
+    public List<User> loadAll(String groupId){
+
+        List<User> userList = new ArrayList<>();
+
+        String query = "SELECT * FROM user WHERE user_group_id="+groupId;
+
+        try(ResultSet rs = DBService.executeQuery(DBService.connect(this.database), query)){
+
+            while (rs.next()) {
+
+                userList.add(new User(
+                        rs.getInt("id"),
+                        rs.getInt("user_group_id"),
+                        rs.getString("name"),
+                        rs.getString("surname"),
+                        rs.getString("git_login"),
+                        rs.getString("email") )
+                );
+
+            }
+        }catch (SQLException e){
+            System.out.println("Error in loadAll in UserDao");
+        }
+
+        System.out.println("");
+
+        return userList;
+    }
+
 
     public void editUser(User user){
 

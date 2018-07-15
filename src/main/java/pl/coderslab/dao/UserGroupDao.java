@@ -87,6 +87,7 @@ public class UserGroupDao {
         return userGroupList;
     }
 
+
     public void editUserGroup(UserGroup userGroup){
 
         String query = "UPDATE user_group SET name=? WHERE id=?";

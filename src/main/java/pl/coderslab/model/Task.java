@@ -7,6 +7,7 @@ public class Task {
     private int taskId;
     private String taskName;
     private String taskAnswer;
+    private String taskData;
 
 
     public Task(int id, int userId, int taskId, String taskName, String taskAnswer) {
@@ -15,6 +16,15 @@ public class Task {
         setTaskId(taskId);
         setTaskName(taskName);
         setTaskAnswer(taskAnswer);
+    }
+
+    public Task(int id, int userId, int taskId, String taskName, String taskAnswer, String taskData) {
+        setId(id);
+        setUserId(userId);
+        setTaskId(taskId);
+        setTaskName(taskName);
+        setTaskAnswer(taskAnswer);
+        setTaskData(taskData);
     }
 
     public int getId() {
@@ -55,5 +65,13 @@ public class Task {
 
     public void setTaskAnswer(String taskAnswer) {
         this.taskAnswer = taskAnswer;
+    }
+
+    public String getTaskData() {
+        return taskData;
+    }
+
+    public void setTaskData(String taskData) {
+        this.taskData = taskData;
     }
 }

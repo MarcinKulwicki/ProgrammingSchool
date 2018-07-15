@@ -35,6 +35,7 @@
         <th scope="col">Task id</th>
         <th scope="col">Task name</th>
         <th scope="col">Task answer</th>
+        <th scope="col">Task data</th>
     </tr>
     </thead>
     <tbody>
@@ -46,6 +47,7 @@
             <td>${task.taskId}</td>
             <td>${task.taskName}</td>
             <td>${task.taskAnswer}</td>
+            <td>${task.taskData}</td>
         </tr>
     </c:forEach>
     </tbody>
